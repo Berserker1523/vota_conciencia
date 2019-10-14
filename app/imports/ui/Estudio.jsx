@@ -14,12 +14,12 @@ class Estudio extends React.Component {
       <div className="container-fluid estudio">
         <div className="row">
           <div className="col-8">
-            <h2 className="titulo-estudio"> {this.state.estudio.titulo}</h2>
+            <h3 className="titulo-estudio"> {this.state.estudio.titulo}</h3>
           </div>
           <div className="col col-lg-2">
-            <h2 className="categoria-estudio">
+            <h3 className="categoria-estudio">
               {this.state.estudio.universidad}
-            </h2>
+            </h3>
           </div>
         </div>
       </div>

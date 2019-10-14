@@ -35,29 +35,16 @@ class CandidatoPerfil extends React.Component {
       ));
     } else if (this.state.estado === "Biografía") {
       return (
-        <div className="biografia">
-          <h1>Biografía</h1>
           <p className="biografia">{candidato.biografia}</p>
-        </div>
       );
     } else if (this.state.estado === "Cargos") {
-      return (
-        <div>
-          <h1>Cargos</h1>
-          {candidato.cargos_anteriores.map((cargo, i) => (
-            <Cargo key={i} cargo={cargo} />
-          ))}
-        </div>
-      );
+      return candidato.cargos_anteriores.map((cargo, i) => (
+          <Cargo key={i} cargo={cargo} />
+        ));
     } else if (this.state.estado === "Estudios") {
-      return (
-        <div>
-          <h1>Estudios</h1>
-          {candidato.estudios.map((estudio, i) => (
+      return candidato.estudios.map((estudio, i) => (
             <Estudio key={i} estudio={estudio} />
-          ))}
-        </div>
-      );
+        ));
     } else if (this.state.estado === "Noticias") {
       return <h1>Noticias</h1>;
     }
@@ -72,7 +59,7 @@ class CandidatoPerfil extends React.Component {
         <div className="container-fluid perfil-candidato">
           <div className="row">
             <div className="col titulo-candidato">
-              <h2> {candidato.nombre} </h2>
+              <h1> {candidato.nombre} </h1>
             </div>
           </div>
           <div className="row">
@@ -84,8 +71,8 @@ class CandidatoPerfil extends React.Component {
               />
             </div>
             <div className="col informacion-basica">
-              <h5>Partido {candidato.partido}</h5>
-              <h5>{candidato.cargo_aspirante}</h5>
+              <p>Partido {candidato.partido}</p>
+              <p>{candidato.cargo_aspirante}</p>
             </div>
             <div className="col col-lg-2 redes-sociales">
               <div className="row">
@@ -118,8 +105,13 @@ class CandidatoPerfil extends React.Component {
                     onClick={e => this.handleClick("Propuestas", e)}
                     className={
                       this.state.estado === "Propuestas"
-                        ? "btn-disabled"
+                        ? "btn disabled"
                         : "btn"
+                    }
+                    aria-disabled={
+                      this.state.estado === "Propuestas"
+                        ? true
+                        : false
                     }
                   >
                     Propuestas
@@ -127,7 +119,12 @@ class CandidatoPerfil extends React.Component {
                   <button
                     onClick={e => this.handleClick("Biografía", e)}
                     className={
-                      this.state.estado === "Biografía" ? "btn-disabled" : "btn"
+                      this.state.estado === "Biografía" ? "btn disabled" : "btn"
+                    }
+                    aria-disabled={
+                      this.state.estado === "Biografía"
+                        ? true
+                        : false
                     }
                   >
                     Biografía
@@ -135,7 +132,12 @@ class CandidatoPerfil extends React.Component {
                   <button
                     onClick={e => this.handleClick("Cargos", e)}
                     className={
-                      this.state.estado === "Cargos" ? "btn-disabled" : "btn"
+                      this.state.estado === "Cargos" ? "btn disabled" : "btn"
+                    }
+                    aria-disabled={
+                      this.state.estado === "Cargos"
+                        ? true
+                        : false
                     }
                   >
                     Cargos
@@ -143,7 +145,12 @@ class CandidatoPerfil extends React.Component {
                   <button
                     onClick={e => this.handleClick("Estudios", e)}
                     className={
-                      this.state.estado === "Estudios" ? "btn-disabled" : "btn"
+                      this.state.estado === "Estudios" ? "btn disabled" : "btn"
+                    }
+                    aria-disabled={
+                      this.state.estado === "Estudios"
+                        ? true
+                        : false
                     }
                   >
                     Estudios
@@ -151,7 +158,12 @@ class CandidatoPerfil extends React.Component {
                   <button
                     onClick={e => this.handleClick("Noticias", e)}
                     className={
-                      this.state.estado === "Noticias" ? "btn-disabled" : "btn"
+                      this.state.estado === "Noticias" ? "btn disabled" : "btn"
+                    }
+                    aria-disabled={
+                      this.state.estado === "Noticias"
+                        ? true
+                        : false
                     }
                   >
                     Noticias
