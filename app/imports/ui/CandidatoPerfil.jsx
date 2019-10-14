@@ -3,6 +3,8 @@ import Navbar from "./Navbar.jsx";
 import { Link } from "react-router-dom"
 import api from "../api/candidatos.json.js";
 import Propuesta from "./Propuesta.jsx";
+import Cargo from "./Cargo.jsx";
+import Estudio from "./Estudio.jsx";
 
 class CandidatoPerfil extends React.Component {
 
@@ -31,15 +33,38 @@ class CandidatoPerfil extends React.Component {
     }
 
     else if(this.state.estado === "Biografía"){
-      return <h1>Biografía</h1>;
+      return (
+        <div className="biografia">
+          <h1>Biografía</h1>
+          <p className="biografia">{candidato.biografia}</p>
+        </div>
+      );
     }
 
     else if(this.state.estado === "Cargos"){
-      return <h1>Cargos</h1>;
+      return (
+        <div>
+          <h1>Cargos</h1>
+          {candidato.cargos_anteriores.map(cargo => (
+          <Cargo
+            key={cargo.cargo}
+            cargo={cargo} />
+        ))}
+        </div>
+      );
     }
 
     else if(this.state.estado === "Estudios"){
-      return <h1>Estudios</h1>;
+      return (
+        <div>
+          <h1>Estudios</h1>
+          {candidato.estudios.map(estudio => (
+          <Estudio
+            key={estudio.titulo}
+            estudio={estudio} />
+        ))}
+        </div>
+      );
     }
 
     else if(this.state.estado === "Noticias"){

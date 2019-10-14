@@ -135,6 +135,11 @@ hr {
   padding: 40px;
 }
 
+p .biografia {
+  font-size: 18px;
+  justify-content: justify;
+}
+
 .info-estado {
   padding-left: 30px;
 }

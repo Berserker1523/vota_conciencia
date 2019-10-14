@@ -21,7 +21,7 @@ class Propuesta extends React.Component {
           </div>
           <div className="col col-lg-2">
             <button type="button" class="btn btn-default btn-sm">
-              <i class="fa fa-plus"></i>
+              <i className="fa fa-plus"></i>
             </button>
           </div>
         </div>
