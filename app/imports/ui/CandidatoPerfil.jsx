@@ -30,6 +30,7 @@ class CandidatoPerfil extends React.Component {
           key={i}
           propuesta={propuesta}
           currentUser={this.props.currentUser}
+          comentarios={this.props.comentarios}
         />
       ));
     } else if (this.state.estado === "Biografía") {
@@ -170,7 +171,8 @@ class CandidatoPerfil extends React.Component {
 
 CandidatoPerfil.propTypes = {
   match: PropTypes.object.isRequired,
-  currentUser: PropTypes.object
+  currentUser: PropTypes.object,
+  comentarios: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default CandidatoPerfil;

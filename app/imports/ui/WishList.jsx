@@ -18,16 +18,21 @@ class WishList extends React.Component {
           if (propuesta.id === Number(item.propuesta)) {
             console.log("forEach candidato: " + candidato.nombre);
             propuestas.push(
-              <Propuesta
-                key={propuesta.id}
-                candidato={candidato.nombre}
-                propuesta={{
-                  categoria: propuesta.categoria,
-                  titulo: propuesta.titulo,
-                  descripcion: propuesta.descripcion
-                }}
-                currentUser={this.props.currentUser}
-              />
+              <div className="row">
+                <div className="col">
+                  <Propuesta
+                    key={propuesta.id}
+                    candidato={candidato.nombre}
+                    propuesta={{
+                      categoria: propuesta.categoria,
+                      titulo: propuesta.titulo,
+                      descripcion: propuesta.descripcion
+                    }}
+                    currentUser={this.props.currentUser}
+                    comentarios={this.props.comentarios}
+                  />
+                </div>
+              </div>
             );
           }
         });
@@ -38,6 +43,8 @@ class WishList extends React.Component {
   }
 
   render() {
+    console.log("comentarios wishlist: ");
+    console.log(this.props.comentarios);
     return (
       <div>
         <Navbar currentUser={this.props.currentUser} paginaActual="wishList" />
@@ -61,7 +68,8 @@ class WishList extends React.Component {
 
 WishList.propTypes = {
   currentUser: PropTypes.object,
-  wishlist: PropTypes.arrayOf(PropTypes.object)
+  wishlist: PropTypes.arrayOf(PropTypes.object),
+  comentarios: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default WishList;
