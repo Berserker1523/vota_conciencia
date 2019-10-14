@@ -1,12 +1,10 @@
 import React from "react";
 import Navbar from "./Navbar.jsx";
 import api from "../api/candidatos.json.js";
+import { Link } from "react-router-dom";
 
 class Inicio extends React.Component {
 
-  renderCandidatos() {
-    return
-  }
   render() {
   return (
     <div>
@@ -18,12 +16,15 @@ class Inicio extends React.Component {
               <div className="row">
               {api.candidatos.map(candidato => (
                   <div className="col-sm" key={candidato.id}>
-                    <img
-                      className="img-candidato"
-                      src={candidato.foto_url}
-                      alt={`Candidato ${candidato.nombre}`}
-                    />
-                    <h2 className="nombre-candidato">{candidato.nombre}</h2>
+                    <Link
+                      to = {`/candidatos/${candidato.id}`}>
+                      <img
+                        className="img-candidato"
+                        src={candidato.foto_url}
+                        alt={`Candidato ${candidato.nombre}`}
+                      />
+                      <h2 className="nombre-candidato">{candidato.nombre}</h2>
+                    </Link>
                   </div>
                 ))}
               </div>

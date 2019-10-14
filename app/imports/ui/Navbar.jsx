@@ -28,18 +28,6 @@ const Navbar = props => {
               Inicio
             </Link>
           </li>
-          <li className="nav-item">
-            <Link
-              to={"/candidatos"}
-              className={
-                props.paginaActual === "Candidatos"
-                  ? "nav-link disabled"
-                  : "nav-link"
-              }
-            >
-              Candidatos
-            </Link>
-          </li>
           {props.currentUser ? (
             <li className="nav-item">
               <Link
