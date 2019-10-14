@@ -1,11 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar.jsx";
 import api from "../api/candidatos.json.js";
+import { Link } from "react-router-dom";
 
 class Inicio extends React.Component {
-  renderCandidatos() {
-    return;
-  }
   render() {
     return (
       <div>
@@ -17,29 +15,60 @@ class Inicio extends React.Component {
               <div className="row">
                 {api.candidatos.map(candidato => (
                   <div className="col-sm" key={candidato.id}>
-                    <img
-                      className="img-candidato"
-                      src={candidato.foto_url}
-                      alt={`Candidato ${candidato.nombre}`}
-                    />
-                    <h2 className="nombre-candidato">{candidato.nombre}</h2>
+                    <Link to={`/candidatos/${candidato.id}`}>
+                      <img
+                        className="img-candidato"
+                        src={candidato.foto_url}
+                        alt={`Candidato ${candidato.nombre}`}
+                      />
+                      <h2 className="nombre-candidato">{candidato.nombre}</h2>
+                    </Link>
                   </div>
                 ))}
               </div>
             </div>
           </div>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col">
+                <hr className="red" />
+              </div>
+              <div className="col">
+                <hr className="yellow" />
+              </div>
+            </div>
+          </div>
           <div className="instrucciones">
             <h1>Arma tu propio plan de gobierno</h1>
-            <div className="container-fluid">
+            <div className="container-fluid pasos">
               <div className="row">
                 <div className="col-sm">
-                  <h1 className="paso">Paso 1</h1>
+                  <img
+                    src="https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
+                    className="img-instrucciones"
+                  />
+                  <p className="paso">
+                    Selecciona el candidato del cual quieres conocer las
+                    propuestas
+                  </p>
                 </div>
                 <div className="col-sm">
-                  <h1 className="paso">Paso 2</h1>
+                  <img
+                    src="https://image.flaticon.com/icons/svg/25/25304.svg"
+                    alt="Simbolo más"
+                    className="img-instrucciones"
+                  />
+                  <p className="paso">
+                    Haz click en "agregar" sobre la propuesta que te interesa
+                  </p>
                 </div>
                 <div className="col-sm">
-                  <h1 className="paso">Paso 3</h1>
+                  <img
+                    src="https://image.flaticon.com/icons/png/512/114/114903.png"
+                    alt="Icono de lista"
+                    className="img-instrucciones"
+                  />
+                  <p className="paso">Revisa tu perfil</p>
                 </div>
               </div>
             </div>

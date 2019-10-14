@@ -13,6 +13,16 @@ body {
   font-size: 14px;
 }
 
+.perfil-candidato {
+  max-width: 75%;
+  min-height: 100%;
+  position: relative;
+  top: 15px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -24,18 +34,27 @@ body {
   display: block;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Libre Franklin', sans-serif;
-  font-size: 1.5em;
+  font-size: 36px;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
-  margin-right: 1em;
+  margin-right: 0em;
 }
 
-.nombre-candidato {
+.nombre-candidato, p {
+  color: black;
   font-family: 'Libre Baskerville', serif;
-  font-size: 14px;
+  font-size: 24px;
+  margin-top: 5px;
+  padding-top: 10px;
+}
+
+.paso {
+  font-size: 18px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .img-candidato {
@@ -47,13 +66,114 @@ h1 {
   margin-right: auto;
 }
 
-.nav-item {
+.img-instrucciones {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-item, .btn {
   font-family: 'Libre Franklin', sans-serif;
 }
 
 .inicio {
   margin-top: 10px;
   text-align: center;
+}
+
+.instrucciones, .pasos, .candidatos {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+hr {
+  height: 5px;
+}
+
+.red {
+  background-color: #D91424;
+  margin-left: 25%;
+}
+
+.yellow {
+  background-color: #F2CC0C;
+  margin-right: 25%;
+}
+
+.red-social-logo {
+  width: 50px;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+.red-social-logo:hover{
+  filter: none;
+}
+
+.redes-sociales {
+  display: block;
+  align-self: right;
+}
+
+.titulo-candidato {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 24px;
+  text-align: center;
+}
+
+.propuesta {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 24px;
+  padding-bottom: 40px;
+}
+
+.informacion  {
+  padding: 40px;
+}
+
+p .biografia {
+  font-size: 18px;
+  justify-content: justify;
+}
+
+.info-estado {
+  padding-left: 30px;
+}
+
+.informacion-basica {
+  font-size: 14px;
+  font-family: 'Libre Baskerville', serif;
+  padding: 5% 0;
+}
+
+.descripcion-propuesta, .categoria-propuesta {
+  font-size: 16px;
+  font-family: 'Libre Baskerville', serif;
+}
+
+
+.btn-group-vertical button {
+  background-color: #000000; /* Green background */
+  border: 1px solid black; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  width: 100%;
+  cursor: pointer; /* Pointer/hand icon */
+  display: block; /* Make the buttons appear below each other */
+  color: white;
+}
+
+.btn-group-vertical button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group-vertical button:hover {
+  background-color: #5D736B;
 }
 
 form {
