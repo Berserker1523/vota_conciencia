@@ -24,24 +24,40 @@ body {
   display: block;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 1.5em;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
-  margin-right: 1em;
+  margin-right: 0em;
 }
 
-.nombre-candidato {
+.nombre-candidato, p {
   font-family: 'Libre Baskerville', serif;
-  font-size: 14px;
+  font-size: 24px;
+  margin-top: 5px;
+  padding-top: 10px;
+}
+
+.paso {
+  font-size: 18px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .img-candidato {
   width: 180px;
   height: 180px;
   border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-instrucciones {
+  width: 120px;
+  height: 120px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -54,6 +70,27 @@ h1 {
 .inicio {
   margin-top: 10px;
   text-align: center;
+}
+
+.instrucciones, .pasos, .candidatos {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+hr {
+  height: 5px;
+}
+
+.red {
+  background-color: #D91424;
+  margin-left: 25%;
+}
+
+.yellow {
+  background-color: #F2CC0C;
+  margin-right: 25%;
 }
 
 form {
