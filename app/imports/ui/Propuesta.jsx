@@ -23,8 +23,18 @@ class Propuesta extends React.Component {
   }
 
   render() {
+    console.log("Propuesta candidato: " + this.props.candidato);
     return (
       <div className="container-fluid propuesta">
+        {this.props.candidato ? (
+          <div className="row">
+            <div className="col-8">
+              <h6 className="candidato-propuesta">{this.props.candidato}</h6>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="row">
           <div className="col-8">
             <h3 className="titulo-propuesta"> {this.state.propuesta.titulo}</h3>
@@ -40,7 +50,11 @@ class Propuesta extends React.Component {
               className="btn btn-default btn-sm"
               onClick={this.addWishList}
             >
-              <i className="fa fa-plus"></i>
+              {this.props.candidato ? (
+                <i className="fa fa-minus"></i>
+              ) : (
+                <i className="fa fa-plus"></i>
+              )}
             </button>
           </div>
         </div>
@@ -55,6 +69,7 @@ class Propuesta extends React.Component {
 }
 
 Propuesta.propTypes = {
+  candidato: PropTypes.string,
   propuesta: PropTypes.object.isRequired,
   currentUser: PropTypes.object
 };
