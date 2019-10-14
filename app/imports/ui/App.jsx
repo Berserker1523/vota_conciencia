@@ -11,8 +11,8 @@ import { Meteor } from "meteor/meteor";
 // App component - represents the whole app
 const App = props => {
   console.log("App current User" + props.currentUser);
-  console.log("WishList: ");
-  console.log(props.wishList);
+  console.log("Wishlist: ");
+  console.log(props.wishlist);
   return (
     <HashRouter>
       {/* envolvemos nuestra aplicación en el Router  */}
@@ -39,7 +39,7 @@ const App = props => {
             <WishListComponent
               {...propiedades}
               currentUser={props.currentUser}
-              wishlist={props.wishList}
+              wishlist={props.wishlist}
             />
           )}
           exact
@@ -51,7 +51,7 @@ const App = props => {
 
 App.propTypes = {
   currentUser: PropTypes.object,
-  wishList: PropTypes.arrayOf(PropTypes.object)
+  wishlist: PropTypes.arrayOf(PropTypes.object)
 };
 
 const AppWrapper = withTracker(() => {
@@ -59,7 +59,7 @@ const AppWrapper = withTracker(() => {
     Meteor.subscribe("wishlist", Meteor.user()._id);
     return {
       currentUser: Meteor.user(),
-      wishList: WishList.find({}, {}).fetch()
+      wishlist: WishList.find({}, {}).fetch()
     };
   } else {
     return {};
