@@ -14,10 +14,10 @@ class Cargo extends React.Component {
       <div className="container-fluid cargo">
         <div className="row">
           <div className="col-8">
-            <h2 className="titulo-cargo"> {this.state.cargo.cargo}</h2>
+            <h3 className="titulo-cargo"> {this.state.cargo.cargo}</h3>
           </div>
           <div className="col col-lg-2">
-            <h2 className="categoria-cargo">{this.state.cargo.tiempo}</h2>
+            <h3 className="categoria-cargo">{this.state.cargo.tiempo}</h3>
           </div>
         </div>
       </div>

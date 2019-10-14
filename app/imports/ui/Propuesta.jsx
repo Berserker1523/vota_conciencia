@@ -27,7 +27,7 @@ class Propuesta extends React.Component {
       <div className="container-fluid propuesta">
         <div className="row">
           <div className="col-8">
-            <h2 className="titulo-propuesta"> {this.state.propuesta.titulo}</h2>
+            <h3 className="titulo-propuesta"> {this.state.propuesta.titulo}</h3>
           </div>
           <div className="col col-lg-2">
             <h2 className="categoria-propuesta">

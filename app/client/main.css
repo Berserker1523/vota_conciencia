@@ -36,14 +36,13 @@ body {
 
 h1, h2 {
   font-family: 'Libre Franklin', sans-serif;
-  font-size: 36px;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 0em;
 }
 
-.nombre-candidato, p {
+.nombre-candidato {
   color: black;
   font-family: 'Libre Baskerville', serif;
   font-size: 24px;
@@ -74,7 +73,7 @@ h1, h2 {
   margin-right: auto;
 }
 
-.nav-item, .btn {
+.nav-item {
   font-family: 'Libre Franklin', sans-serif;
 }
 
@@ -121,13 +120,13 @@ hr {
 
 .titulo-candidato {
   font-family: 'Libre Franklin', sans-serif;
-  font-size: 24px;
+  font-size: 48px;
   text-align: center;
 }
 
-.propuesta {
+.propuesta, .cargo, .estudio {
   font-family: 'Libre Franklin', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   padding-bottom: 40px;
 }
 
@@ -141,22 +140,27 @@ p .biografia {
 }
 
 .info-estado {
-  padding-left: 30px;
+  padding-left: 15px;
 }
 
 .informacion-basica {
-  font-size: 14px;
+  font-size: 24px;
   font-family: 'Libre Baskerville', serif;
-  padding: 5% 0;
+  padding: 3% 0;
 }
 
-.descripcion-propuesta, .categoria-propuesta {
+.biografia {
+  font-size: 24px;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.descripcion-propuesta, .categoria-propuesta, .categoria-cargo, .categoria-estudio {
   font-size: 16px;
   font-family: 'Libre Baskerville', serif;
 }
 
-
 .btn-group-vertical button {
+  font-family: 'Libre Franklin', sans-serif;
   background-color: #000000; /* Green background */
   border: 1px solid black; /* Green border */
   color: white; /* White text */
