@@ -13,7 +13,7 @@ const Navbar = props => {
       </Link>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item" style={{ marginTop: 12 }}>
+          <li className="nav-item" style={{ marginTop: 10, marginLeft: 10 }}>
             <AccountsUIWrapper />
           </li>
           <li>

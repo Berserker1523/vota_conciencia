@@ -16,14 +16,12 @@ Meteor.methods({
     nombre,
     cargo_aspirante,
     partido,
-    fecha_nacimiento,
     foto_url,
     redes_sociales
   ) {
     check(nombre, String);
     check(cargo_aspirante, String);
     check(partido, String);
-    check(fecha_nacimiento, String);
     check(foto_url, String);
     check(redes_sociales, Object);
 
@@ -31,7 +29,6 @@ Meteor.methods({
       nombre,
       cargo_aspirante,
       partido,
-      fecha_nacimiento,
       foto_url,
       redes_sociales
     });
@@ -42,7 +39,6 @@ Meteor.methods({
     nombre,
     cargo_aspirante,
     partido,
-    fecha_nacimiento,
     foto_url,
     redes_sociales
   ) {
@@ -50,7 +46,6 @@ Meteor.methods({
     check(nombre, String);
     check(cargo_aspirante, String);
     check(partido, String);
-    check(fecha_nacimiento, String);
     check(foto_url, String);
     check(redes_sociales, Object);
 
@@ -59,7 +54,6 @@ Meteor.methods({
         nombre: nombre,
         cargo_aspirante: cargo_aspirante,
         partido: partido,
-        fecha_nacimiento: fecha_nacimiento,
         foto_url: foto_url,
         redes_sociales: redes_sociales
       }
