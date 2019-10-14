@@ -2,12 +2,14 @@ import React from "react";
 import Navbar from "./Navbar.jsx";
 import api from "../api/candidatos.json.js";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class Inicio extends React.Component {
   render() {
+    console.log("Inicio: " + this.props.currentUser);
     return (
       <div>
-        <Navbar paginaActual="Inicio" />
+        <Navbar currentUser={this.props.currentUser} paginaActual="Inicio" />
         <div className="container-fluid inicio">
           <div className="candidatos">
             <h1>Conoce los candidatos</h1>
@@ -59,7 +61,8 @@ class Inicio extends React.Component {
                     className="img-instrucciones"
                   />
                   <p className="paso">
-                    Haz click en "agregar" sobre la propuesta que te interesa
+                    Haz click en `&quot;`agregar`&quot;` sobre la propuesta que
+                    te interesa
                   </p>
                 </div>
                 <div className="col-sm">
@@ -78,35 +81,9 @@ class Inicio extends React.Component {
     );
   }
 }
-/*const mostrarCandidatos = () => {
-    console.log("Llgeue aki");
-    console.log("candidatos: ");
-    console.log(api.candidatos);
-    return api.candidatos.map(candidato => {
-      <div>
-        <img src={candidato.foto_url} alt={`Candidato ${candidato.nombre}`} />
-        <h2>{candidato.nombre}</h2>
-      </div>;
-    });
-  };*/
 
-/*  return (
-    <div className="container-fluid">
-      <Navbar paginaActual="Inicio" />
-      <div>
-        <h1>Conoce a los candidatos</h1>
-        {api.candidatos.map(candidato => (
-          <div key={candidato.id}>
-            <img
-              src={candidato.foto_url}
-              alt={`Candidato ${candidato.nombre}`}
-            />
-            <h2>{candidato.nombre}</h2>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};*/
+Inicio.propTypes = {
+  currentUser: PropTypes.object
+};
 
 export default Inicio;

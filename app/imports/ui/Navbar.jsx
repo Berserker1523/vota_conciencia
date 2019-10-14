@@ -2,8 +2,6 @@ import React from "react";
 import AccountsUIWrapper from "./AccountsUIWrapper.jsx";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Meteor } from "meteor/meteor";
-import { withTracker } from "meteor/react-meteor-data";
 
 const Navbar = props => {
   return (
@@ -31,7 +29,7 @@ const Navbar = props => {
           {props.currentUser ? (
             <li className="nav-item">
               <Link
-                to={"/wishList"}
+                to={"/wishlist"}
                 className={
                   props.paginaActual === "wishList"
                     ? "nav-link disabled"
@@ -55,10 +53,4 @@ Navbar.propTypes = {
   currentUser: PropTypes.object
 };
 
-const NavbarWrapper = withTracker(() => {
-  return {
-    currentUser: Meteor.user()
-  };
-})(Navbar);
-
-export default NavbarWrapper;
+export default Navbar;
