@@ -1,5 +1,4 @@
 /* CSS declarations go here */
-
 body {
   font-family: 'Libre Baskerville', serif;
   background-color: #FFFFFF;
@@ -41,7 +40,7 @@ h1 {
 
 .img-candidato {
   width: 180px;
-  height: auto;
+  height: 180px;
   border-radius: 50%;
   display: block;
   margin-left: auto;
@@ -123,4 +122,8 @@ header .hide-completed {
   .new-task input {
     padding-bottom: 5px;
   }
+}
+
+#login-buttons-open-change-password {
+  background-color: red !important;
 }
