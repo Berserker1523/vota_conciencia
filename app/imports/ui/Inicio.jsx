@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 class Inicio extends React.Component {
   render() {
-    console.log("Inicio: " + this.props.currentUser);
+    console.log("Usuario componente Inicio: " + this.props.currentUser);
     return (
       <div>
         <Navbar currentUser={this.props.currentUser} paginaActual="Inicio" />
@@ -62,8 +62,8 @@ class Inicio extends React.Component {
                     className="img-instrucciones"
                   />
                   <p className="paso">
-                    Haz click en `&quot;`agregar`&quot;` sobre la propuesta que
-                    te interesa
+                    Haz click en &quot;agregar&quot; sobre la propuesta que te
+                    interesa
                   </p>
                 </div>
                 <div className="col-sm">
@@ -72,7 +72,7 @@ class Inicio extends React.Component {
                     alt="Icono de lista"
                     className="img-instrucciones"
                   />
-                  <p className="paso">Revisa tu perfil</p>
+                  <p className="paso">Revisa tu lista</p>
                 </div>
               </div>
             </div>

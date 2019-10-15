@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../api/wishlist.js";
-import "../api/comentarios.js";
 import { Meteor } from "meteor/meteor";
+import { withTracker } from "meteor/react-meteor-data";
+
 import Comentario from "./Comentario.jsx";
+import { Comentarios } from "../api/comentarios.js";
+import { WishList } from "../api/wishlist.js";
 
 class Propuesta extends React.Component {
   constructor(props) {
@@ -13,33 +15,44 @@ class Propuesta extends React.Component {
       comentario: "",
       mostrarComentarios: false
     };
-    this.addWishList = this.addWishList.bind(this);
+
     this.handleComment = this.handleComment.bind(this);
     this.onKeyPress = this.onKeyPress.bind(this);
     this.showComments = this.showComments.bind(this);
     this.changeShowComments = this.changeShowComments.bind(this);
+    this.isInWishList = this.isInWishList.bind(this);
+    this.addWishList = this.addWishList.bind(this);
+    this.deleteWishList = this.deleteWishList.bind(this);
   }
 
   changeShowComments() {
+    console.log("changeShowComments: ");
     console.log("Comentarios propuesta: ");
     console.log(this.props.comentarios);
-    console.log("Cambió el estado from: " + this.state.mostrarComentarios);
+    console.log(
+      "Cambió el estado.mostrarComentarios from: " +
+        this.state.mostrarComentarios
+    );
     this.setState({ mostrarComentarios: !this.state.mostrarComentarios });
   }
 
   showComments() {
     console.log("Llgeue a showComments");
+    console.log("mostrar wish list: ");
+    console.log(this.props.wishlist);
     let comentarios = [];
     this.props.comentarios.forEach(comentario => {
-      if (this.props.propuesta.id === Number(comentario.upper)) {
+      if (Number(comentario.upper) === this.props.propuesta.id) {
         comentarios.push(
-          <Comentario
-            key={comentario._id}
-            comentario={{
-              nombreUsuario: comentario.nombreUsuario,
-              texto: comentario.texto
-            }}
-          />
+          <div className="comentario">
+            <Comentario
+              key={comentario._id}
+              comentario={{
+                nombreUsuario: comentario.nombreUsuario,
+                texto: comentario.texto
+              }}
+            />
+          </div>
         );
       }
     });
@@ -64,14 +77,35 @@ class Propuesta extends React.Component {
     this.setState({ comentario: e.target.value });
   }
 
+  isInWishList() {
+    if (this.props.wishlist) {
+      console.log("Is in wish list: ");
+      console.log(this.props.propuesta.id);
+
+      let wishlistId = "";
+      let existIndex =
+        this.props.wishlist.findIndex(item => {
+          if (Number(item.propuesta) === this.props.propuesta.id) {
+            wishlistId = item._id;
+            return true;
+          } else {
+            return false;
+          }
+        }) >= 0;
+      return { existIndex, wishlistId };
+    }
+  }
+
   addWishList() {
+    console.log("addWishList: ");
     console.log(this.props.propuesta.id);
     console.log(this.props.currentUser);
-    Meteor.call(
-      "wishlist.create",
-      this.props.currentUser._id,
-      this.props.propuesta.id + ""
-    );
+    Meteor.call("wishlist.create", this.props.propuesta.id + "");
+  }
+
+  deleteWishList() {
+    console.log("deleteWishList: ");
+    Meteor.call("wishlist.delete", this.isInWishList().wishlistId);
   }
 
   render() {
@@ -101,9 +135,13 @@ class Propuesta extends React.Component {
               type="button"
               aria-label="Boton agregar"
               className="btn btn-default btn-sm"
-              onClick={this.addWishList}
+              onClick={
+                this.isInWishList().existIndex
+                  ? this.deleteWishList
+                  : this.addWishList
+              }
             >
-              {this.props.candidato ? (
+              {this.isInWishList().existIndex ? (
                 <i className="fa fa-minus"></i>
               ) : (
                 <i className="fa fa-plus"></i>
@@ -120,19 +158,24 @@ class Propuesta extends React.Component {
         </div>
         <div className="row">
           <div className="col">
-            <input
-              type="text"
+            <textarea
+              rows="1"
+              cols="60"
               aria-label="Escribe un comentario"
               placeholder="Escribe un comentario"
               onChange={this.handleComment}
               onKeyPress={this.onKeyPress}
-              value={this.state.comentario}
-            />
+            >
+              {this.state.comentario}
+            </textarea>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <button onClick={this.changeShowComments}>
+            <button
+              onClick={this.changeShowComments}
+              className="buttonShowComments"
+            >
               {!this.state.mostrarComentarios
                 ? "Ver comentarios"
                 : "Ocultar comentarios"}
@@ -155,7 +198,24 @@ Propuesta.propTypes = {
   candidato: PropTypes.string,
   propuesta: PropTypes.object.isRequired,
   currentUser: PropTypes.object,
-  comentarios: PropTypes.arrayOf(PropTypes.object)
+  comentarios: PropTypes.arrayOf(PropTypes.object),
+  wishlist: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default Propuesta;
+const PropuestaWrapper = withTracker(({ propuesta, currentUser }) => {
+  console.log("Propuesta Tracker propuesta: ");
+  console.log(propuesta);
+
+  Meteor.subscribe("comentarios", propuesta.id + "");
+  if (currentUser) {
+    Meteor.subscribe("wishlistPropuesta", currentUser._id, propuesta.id + "");
+    return {
+      comentarios: Comentarios.find({}).fetch(),
+      wishlist: WishList.find({}).fetch()
+    };
+  } else {
+    return { comentarios: Comentarios.find({}).fetch() };
+  }
+})(Propuesta);
+
+export default PropuestaWrapper;

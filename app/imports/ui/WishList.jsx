@@ -1,10 +1,15 @@
 import React from "react";
-import Navbar from "./Navbar.jsx";
-import api from "../api/candidatos.json.js";
-import Propuesta from "./Propuesta.jsx";
+import { Meteor } from "meteor/meteor";
+import { withTracker } from "meteor/react-meteor-data";
 import PropTypes from "prop-types";
 
-class WishList extends React.Component {
+import Navbar from "./Navbar.jsx";
+import Propuesta from "./Propuesta.jsx";
+
+import api from "../api/candidatos.json.js";
+import { WishList } from "../api/wishlist.js";
+
+class WishListComponent extends React.Component {
   constructor(props) {
     super(props);
     this.mostrarPropuestas = this.mostrarPropuestas.bind(this);
@@ -16,7 +21,6 @@ class WishList extends React.Component {
       api.candidatos.forEach(candidato => {
         candidato.propuestas.forEach(propuesta => {
           if (propuesta.id === Number(item.propuesta)) {
-            console.log("forEach candidato: " + candidato.nombre);
             propuestas.push(
               <div className="row">
                 <div className="col">
@@ -24,12 +28,12 @@ class WishList extends React.Component {
                     key={propuesta.id}
                     candidato={candidato.nombre}
                     propuesta={{
+                      id: propuesta.id,
                       categoria: propuesta.categoria,
                       titulo: propuesta.titulo,
                       descripcion: propuesta.descripcion
                     }}
                     currentUser={this.props.currentUser}
-                    comentarios={this.props.comentarios}
                   />
                 </div>
               </div>
@@ -43,8 +47,8 @@ class WishList extends React.Component {
   }
 
   render() {
-    console.log("comentarios wishlist: ");
-    console.log(this.props.comentarios);
+    console.log("WishList wishlist: ");
+    console.log(this.props.wishlist);
     return (
       <div>
         <Navbar currentUser={this.props.currentUser} paginaActual="wishList" />
@@ -52,7 +56,7 @@ class WishList extends React.Component {
           <div className="row">
             <div className="col">
               <h1 style={{ marginTop: 0 }}>Wish List</h1>
-              <button style={{ marginLeft: 10 }}>Filtrar</button>
+              {/*<button style={{ marginLeft: 10 }}>Filtrar</button>*/}
             </div>
           </div>
           <div className="row">
@@ -66,10 +70,20 @@ class WishList extends React.Component {
   }
 }
 
-WishList.propTypes = {
+WishListComponent.propTypes = {
   currentUser: PropTypes.object,
-  wishlist: PropTypes.arrayOf(PropTypes.object),
-  comentarios: PropTypes.arrayOf(PropTypes.object)
+  wishlist: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default WishList;
+const WishListWrapper = withTracker(({ currentUser }) => {
+  if (currentUser) {
+    Meteor.subscribe("wishlist");
+    return {
+      wishlist: WishList.find({}).fetch()
+    };
+  } else {
+    return { wishlist: [] };
+  }
+})(WishListComponent);
+
+export default WishListWrapper;

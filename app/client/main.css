@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body {
-  font-family: 'Libre Baskerville', serif;
-  background-color: #FFFFFF;
+  font-family: "Libre Baskerville", serif;
+  background-color: #ffffff;
   background-attachment: fixed;
   position: absolute;
   top: 0;
@@ -34,8 +34,9 @@ body {
   display: block;
 }
 
-h1, h2 {
-  font-family: 'Libre Franklin', sans-serif;
+h1,
+h2 {
+  font-family: "Libre Franklin", sans-serif;
   margin: 0;
   margin-bottom: 10px;
   display: inline-block;
@@ -44,7 +45,7 @@ h1, h2 {
 
 .nombre-candidato {
   color: black;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   font-size: 24px;
   margin-top: 5px;
   padding-top: 10px;
@@ -84,6 +85,7 @@ h1, h2 {
 
 a .nav-link {
   color: black;
+  font-family: "Libre Franklin", sans-serif;
 }
 
 .inicio {
@@ -91,7 +93,9 @@ a .nav-link {
   text-align: center;
 }
 
-.instrucciones, .pasos, .candidatos {
+.instrucciones,
+.pasos,
+.candidatos {
   margin-top: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -103,12 +107,12 @@ hr {
 }
 
 .red {
-  background-color: #D91424;
+  background-color: #d91424;
   margin-left: 25%;
 }
 
 .yellow {
-  background-color: #F2CC0C;
+  background-color: #f2cc0c;
   margin-right: 25%;
 }
 
@@ -118,7 +122,7 @@ hr {
   filter: grayscale(100%);
 }
 
-.red-social-logo:hover{
+.red-social-logo:hover {
   filter: none;
 }
 
@@ -128,18 +132,20 @@ hr {
 }
 
 .titulo-candidato {
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: "Libre Franklin", sans-serif;
   font-size: 48px;
   text-align: center;
 }
 
-.propuesta, .cargo, .estudio {
-  font-family: 'Libre Franklin', sans-serif;
+.propuesta,
+.cargo,
+.estudio {
+  font-family: "Libre Franklin", sans-serif;
   font-size: 20px;
   padding-bottom: 40px;
 }
 
-.informacion  {
+.informacion {
   padding: 40px;
 }
 
@@ -154,22 +160,25 @@ p .biografia {
 
 .informacion-basica {
   font-size: 24px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   padding: 3% 0;
 }
 
 .biografia {
   font-size: 24px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
 
-.descripcion-propuesta, .categoria-propuesta, .categoria-cargo, .categoria-estudio {
+.descripcion-propuesta,
+.categoria-propuesta,
+.categoria-cargo,
+.categoria-estudio {
   font-size: 16px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
 }
 
 .btn-group-vertical button {
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: "Libre Franklin", sans-serif;
   background-color: #000000; /* Green background */
   border: 1px solid black; /* Green border */
   color: white; /* White text */
@@ -186,7 +195,7 @@ p .biografia {
 
 /* Add a background color on hover */
 .btn-group-vertical button:hover {
-  background-color: #5D736B;
+  background-color: #5d736b;
 }
 
 form {
@@ -258,5 +267,26 @@ header .hide-completed {
 }
 
 #login-buttons-open-change-password {
-  background-color: red !important;
+  /*background-color: red !important;*/
+}
+
+.buttonShowComments {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  /*optional*/
+  font-family: "Libre Franklin", sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.comentario {
+  border-style: solid;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 2px;
+  margin-top: 10px;
 }
