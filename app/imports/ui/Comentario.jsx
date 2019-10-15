@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Comentario = props => {
   return (
     <div>
-      <h5>{props.comentario.nombreUsuario}</h5>
+      <h5 className="comentarioUsuario">{props.comentario.nombreUsuario}</h5>
       <p>{props.comentario.texto}</p>
     </div>
   );

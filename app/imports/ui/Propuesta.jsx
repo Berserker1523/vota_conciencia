@@ -44,9 +44,8 @@ class Propuesta extends React.Component {
     this.props.comentarios.forEach(comentario => {
       if (Number(comentario.upper) === this.props.propuesta.id) {
         comentarios.push(
-          <div className="comentario">
+          <div className="comentario" key={comentario._id}>
             <Comentario
-              key={comentario._id}
               comentario={{
                 nombreUsuario: comentario.nombreUsuario,
                 texto: comentario.texto
@@ -93,6 +92,8 @@ class Propuesta extends React.Component {
           }
         }) >= 0;
       return { existIndex, wishlistId };
+    } else {
+      return { existIndex: false, wishlistId: -1 };
     }
   }
 
@@ -159,15 +160,15 @@ class Propuesta extends React.Component {
         <div className="row">
           <div className="col">
             <textarea
+              className="areaComment"
               rows="1"
               cols="60"
               aria-label="Escribe un comentario"
               placeholder="Escribe un comentario"
               onChange={this.handleComment}
               onKeyPress={this.onKeyPress}
-            >
-              {this.state.comentario}
-            </textarea>
+              value={this.state.comentario}
+            ></textarea>
           </div>
         </div>
         <div className="row">
