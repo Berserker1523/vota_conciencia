@@ -89,7 +89,7 @@ class Propuesta extends React.Component {
         )}
         <div className="row">
           <div className="col-8">
-            <h3 className="titulo-propuesta"> {this.state.propuesta.titulo}</h3>
+            <h2 className="titulo-propuesta"> {this.state.propuesta.titulo}</h2>
           </div>
           <div className="col col-lg-2">
             <h2 className="categoria-propuesta">
@@ -99,6 +99,7 @@ class Propuesta extends React.Component {
           <div className="col col-lg-2">
             <button
               type="button"
+              aria-label="Boton agregar"
               className="btn btn-default btn-sm"
               onClick={this.addWishList}
             >
@@ -121,6 +122,7 @@ class Propuesta extends React.Component {
           <div className="col">
             <input
               type="text"
+              aria-label="Escribe un comentario"
               placeholder="Escribe un comentario"
               onChange={this.handleComment}
               onKeyPress={this.onKeyPress}

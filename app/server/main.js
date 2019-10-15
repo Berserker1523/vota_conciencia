@@ -7,5 +7,6 @@ import "../imports/api/usuarios.js";
 import "../imports/api/wishlist.js";
 
 import "../imports/api/tasks.js";
+import { WebApp } from 'meteor/webapp';
 
-Meteor.startup(() => {});
+Meteor.startup(() => {WebApp.addHtmlAttributeHook(() => ({ lang: 'es' }));});

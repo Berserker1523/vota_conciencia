@@ -47,6 +47,7 @@ class Inicio extends React.Component {
                 <div className="col-sm">
                   <img
                     src="https://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
+                    alt="Icono de imagen de perfil"
                     className="img-instrucciones"
                   />
                   <p className="paso">

@@ -19,7 +19,7 @@ const Navbar = props => {
               to={"/"}
               className={
                 props.paginaActual === "Inicio"
-                  ? "nav-link disabled"
+                  ? "nav-link-disabled"
                   : "nav-link"
               }
             >
@@ -32,7 +32,7 @@ const Navbar = props => {
                 to={"/wishlist"}
                 className={
                   props.paginaActual === "wishList"
-                    ? "nav-link disabled"
+                    ? "nav-link-disabled"
                     : "nav-link"
                 }
               >

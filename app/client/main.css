@@ -75,6 +75,15 @@ h1, h2 {
 
 .nav-item {
   font-family: 'Libre Franklin', sans-serif;
+  color:black;
+}
+
+.nav-link-disabled {
+  color: black;
+}
+
+a .nav-link {
+  color: black;
 }
 
 .inicio {
