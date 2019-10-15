@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 
 class Inicio extends React.Component {
   render() {
-    console.log("Usuario componente Inicio: " + this.props.currentUser);
     return (
       <div>
         <Navbar currentUser={this.props.currentUser} paginaActual="Inicio" />
