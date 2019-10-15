@@ -1,3 +1,5 @@
+// Esto deberia estar en una base de datos
+
 export default {
   candidatos: [
     {
