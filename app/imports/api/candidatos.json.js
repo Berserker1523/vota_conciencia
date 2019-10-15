@@ -1,3 +1,5 @@
+// Seria bueno implementar esta informacion en una base de datos aprovechando el uso de Meteor.js
+
 export default {
   candidatos: [
     {
