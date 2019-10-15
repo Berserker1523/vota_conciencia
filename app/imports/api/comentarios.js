@@ -6,8 +6,10 @@ export const Comentarios = new Mongo.Collection("comentarios");
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish("comentarios", () => {
-    return Comentarios.find({});
+  Meteor.publish("comentarios", upperObjectId => {
+    check(upperObjectId, String);
+
+    return Comentarios.find({ upper: upperObjectId });
   });
 }
 

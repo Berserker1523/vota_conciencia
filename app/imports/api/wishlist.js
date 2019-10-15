@@ -6,15 +6,27 @@ export const WishList = new Mongo.Collection("wishlist");
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish("wishlist", usuario => {
-    return WishList.find({ usuario: usuario });
+  Meteor.publish("wishlistPropuesta", (usuarioId, propuestaId) => {
+    check(propuestaId, String);
+    check(usuarioId, String);
+
+    return WishList.find({ usuario: usuarioId, propuesta: propuestaId });
+  });
+
+  Meteor.publish("wishlist", () => {
+    if (!this.userId) {
+      throw new Meteor.Error(
+        "El usuario debe iniciar sesion para poder ver a su lista de deseos."
+      );
+    }
+
+    return WishList.find({ usuario: this.userId });
   });
 }
 
 Meteor.methods({
-  "wishlist.create"(usuario, propuesta) {
-    check(usuario, String);
-    check(propuesta, String);
+  "wishlist.create"(propuestaId) {
+    check(propuestaId, String);
 
     if (!this.userId) {
       throw new Meteor.Error(
@@ -23,8 +35,8 @@ Meteor.methods({
     }
 
     WishList.insert({
-      usuario,
-      propuesta
+      usuario: this.userId,
+      propuesta: propuestaId
     });
   },
 

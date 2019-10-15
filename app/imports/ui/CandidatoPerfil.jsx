@@ -30,28 +30,24 @@ class CandidatoPerfil extends React.Component {
           key={i}
           propuesta={propuesta}
           currentUser={this.props.currentUser}
-          comentarios={this.props.comentarios}
         />
       ));
     } else if (this.state.estado === "Biografía") {
-      return (
-          <p className="biografia">{candidato.biografia}</p>
-      );
+      return <p className="biografia">{candidato.biografia}</p>;
     } else if (this.state.estado === "Cargos") {
       return candidato.cargos_anteriores.map((cargo, i) => (
-          <Cargo key={i} cargo={cargo} />
-        ));
+        <Cargo key={i} cargo={cargo} />
+      ));
     } else if (this.state.estado === "Estudios") {
       return candidato.estudios.map((estudio, i) => (
-            <Estudio key={i} estudio={estudio} />
-        ));
+        <Estudio key={i} estudio={estudio} />
+      ));
     } else if (this.state.estado === "Noticias") {
       return <h1>Noticias</h1>;
     }
   }
 
   render() {
-    console.log("Candidato perfil: " + this.props.currentUser);
     const candidato = api.candidatos[this.state.candidatoId - 1];
     return (
       <div>
@@ -109,9 +105,7 @@ class CandidatoPerfil extends React.Component {
                         : "btn"
                     }
                     aria-disabled={
-                      this.state.estado === "Propuestas"
-                        ? true
-                        : false
+                      this.state.estado === "Propuestas" ? true : false
                     }
                   >
                     Propuestas
@@ -122,9 +116,7 @@ class CandidatoPerfil extends React.Component {
                       this.state.estado === "Biografía" ? "btn disabled" : "btn"
                     }
                     aria-disabled={
-                      this.state.estado === "Biografía"
-                        ? true
-                        : false
+                      this.state.estado === "Biografía" ? true : false
                     }
                   >
                     Biografía
@@ -135,9 +127,7 @@ class CandidatoPerfil extends React.Component {
                       this.state.estado === "Cargos" ? "btn disabled" : "btn"
                     }
                     aria-disabled={
-                      this.state.estado === "Cargos"
-                        ? true
-                        : false
+                      this.state.estado === "Cargos" ? true : false
                     }
                   >
                     Cargos
@@ -148,9 +138,7 @@ class CandidatoPerfil extends React.Component {
                       this.state.estado === "Estudios" ? "btn disabled" : "btn"
                     }
                     aria-disabled={
-                      this.state.estado === "Estudios"
-                        ? true
-                        : false
+                      this.state.estado === "Estudios" ? true : false
                     }
                   >
                     Estudios
@@ -161,9 +149,7 @@ class CandidatoPerfil extends React.Component {
                       this.state.estado === "Noticias" ? "btn disabled" : "btn"
                     }
                     aria-disabled={
-                      this.state.estado === "Noticias"
-                        ? true
-                        : false
+                      this.state.estado === "Noticias" ? true : false
                     }
                   >
                     Noticias
@@ -184,6 +170,7 @@ class CandidatoPerfil extends React.Component {
 CandidatoPerfil.propTypes = {
   match: PropTypes.object.isRequired,
   currentUser: PropTypes.object,
+  wishlist: PropTypes.arrayOf(PropTypes.object),
   comentarios: PropTypes.arrayOf(PropTypes.object)
 };
 
