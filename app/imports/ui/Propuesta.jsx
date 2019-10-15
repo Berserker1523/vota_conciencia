@@ -26,20 +26,10 @@ class Propuesta extends React.Component {
   }
 
   changeShowComments() {
-    console.log("changeShowComments: ");
-    console.log("Comentarios propuesta: ");
-    console.log(this.props.comentarios);
-    console.log(
-      "Cambió el estado.mostrarComentarios from: " +
-        this.state.mostrarComentarios
-    );
     this.setState({ mostrarComentarios: !this.state.mostrarComentarios });
   }
 
   showComments() {
-    console.log("Llgeue a showComments");
-    console.log("mostrar wish list: ");
-    console.log(this.props.wishlist);
     let comentarios = [];
     this.props.comentarios.forEach(comentario => {
       if (Number(comentario.upper) === this.props.propuesta.id) {
@@ -60,9 +50,6 @@ class Propuesta extends React.Component {
 
   onKeyPress(e) {
     if (e.key === "Enter") {
-      console.log("crear comentario");
-      console.log(this.props.propuesta.id);
-      console.log(this.state.comentario);
       Meteor.call(
         "comentarios.create",
         this.props.propuesta.id + "",
@@ -78,8 +65,6 @@ class Propuesta extends React.Component {
 
   isInWishList() {
     if (this.props.wishlist) {
-      console.log("Is in wish list: ");
-      console.log(this.props.propuesta.id);
 
       let wishlistId = "";
       let existIndex =
@@ -98,19 +83,14 @@ class Propuesta extends React.Component {
   }
 
   addWishList() {
-    console.log("addWishList: ");
-    console.log(this.props.propuesta.id);
-    console.log(this.props.currentUser);
     Meteor.call("wishlist.create", this.props.propuesta.id + "");
   }
 
   deleteWishList() {
-    console.log("deleteWishList: ");
     Meteor.call("wishlist.delete", this.isInWishList().wishlistId);
   }
 
   render() {
-    console.log("Propuesta candidato: " + this.props.candidato);
     return (
       <div className="container-fluid propuesta">
         {this.props.candidato ? (
@@ -204,8 +184,6 @@ Propuesta.propTypes = {
 };
 
 const PropuestaWrapper = withTracker(({ propuesta, currentUser }) => {
-  console.log("Propuesta Tracker propuesta: ");
-  console.log(propuesta);
 
   Meteor.subscribe("comentarios", propuesta.id + "");
   if (currentUser) {
