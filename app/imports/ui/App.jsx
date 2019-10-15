@@ -10,7 +10,6 @@ import WishListComponent from "./WishList.jsx";
 
 // App component - represents the whole app
 const App = props => {
-  console.log("App current User" + props.currentUser);
   return (
     <HashRouter>
       {/* envolvemos nuestra aplicación en el Router  */}
