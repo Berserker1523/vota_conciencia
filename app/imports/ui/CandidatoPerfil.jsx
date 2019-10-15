@@ -6,6 +6,25 @@ import Propuesta from "./Propuesta.jsx";
 import Cargo from "./Cargo.jsx";
 import Estudio from "./Estudio.jsx";
 import PropTypes from "prop-types";
+/*
+
+
+Issue description
+Ensures buttons have discernible text
+
+
+Element does not have inner text that is visible to screen readers
+
+aria-label attribute does not exist or is empty
+
+aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
+
+Element's default semantics were not overridden with role="presentation"
+
+Element's default semantics were not overridden with role="none"
+
+Element has no title attribute or the title attribute is empty
+*/
 
 class CandidatoPerfil extends React.Component {
   constructor(props) {
@@ -97,7 +116,7 @@ class CandidatoPerfil extends React.Component {
             <div className="row">
               <div className="col col-lg-2 menu-candidato">
                 <div className="btn-group-vertical">
-                  <button
+                  <button role="presentation"
                     onClick={e => this.handleClick("Propuestas", e)}
                     className={
                       this.state.estado === "Propuestas"
