@@ -31,6 +31,7 @@ const App = props => {
           )}
           exact
         />
+        <div role="main">
         <Route
           path="/wishlist"
           render={propiedades => (
@@ -38,7 +39,9 @@ const App = props => {
               {...propiedades}
               currentUser={props.currentUser}
             />
+              /* incluir un main landmark */
           )}
+           <div role="main">
           exact
         />
       </Switch>
