@@ -47,8 +47,6 @@ class WishListComponent extends React.Component {
   }
 
   render() {
-    console.log("WishList wishlist: ");
-    console.log(this.props.wishlist);
     return (
       <div>
         <Navbar currentUser={this.props.currentUser} paginaActual="wishList" />
@@ -56,7 +54,6 @@ class WishListComponent extends React.Component {
           <div className="row">
             <div className="col">
               <h1 style={{ marginTop: 0 }}>Wish List</h1>
-              {/*<button style={{ marginLeft: 10 }}>Filtrar</button>*/}
             </div>
           </div>
           <div className="row">
